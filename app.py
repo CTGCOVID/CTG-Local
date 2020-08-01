@@ -1,20 +1,9 @@
-from urllib.request import urlopen
 import pandas as pd
-import json
-with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
-    counties = json.load(response)
-import os
 import plotly.express as px
-from datetime import datetime
-from datetime import date
-from datetime import timedelta
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
-from statistics import mean
-from statistics import stdev
-import math
+from dash.dependencies import Output
 
 url = 'https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv'
 popUrl = 'https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv'
@@ -22,17 +11,13 @@ deathUrl = 'https://usafactsstatic.blob.core.windows.net/public/data/covid-19/co
 
 confirmed_pd = pd.read_csv(url, index_col=False)
 population_pd = pd.read_csv(popUrl, index_col=False)
-deaths_pd = pd.read_csv(deathUrl, index_col=False)
 confirmed_pd.columns = confirmed_pd.columns.astype(str)
-deaths_pd.columns = deaths_pd.columns.astype(str)
 
 columns = confirmed_pd.columns
 
 confirmed_pd['Population'] = population_pd['population']
-deaths_pd['Population'] = population_pd['population']
 
 confirmed_pd = confirmed_pd[confirmed_pd['Population']!=0].reset_index(drop=True)
-deaths_pd = deaths_pd[deaths_pd['Population']!=0].reset_index(drop=True)
 
 state = confirmed_pd.copy()
 state = state[state["State"] == 'FL']
