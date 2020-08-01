@@ -123,6 +123,7 @@ app.layout = html.Div([
             html.H1('          Florida:',style={'color':'white'}),
             html.H1('Active Cases: ' + str(state[columns[-1]].sum()-state[columns[-15]].sum()),style={'color':'white', 'text-align':'center'}),
             html.H1('New Cases: ' + str(state[columns[-1]].sum()-state[columns[-2]].sum()),style={'color':'white', 'text-align':'center'}),
+            html.H2('Last Update: ' + str(columns[-1]),style={'color':'white', 'text-align':'right'}),
         ],className='six columns', style={'width':'40%'}),
     ],className='row', style={'display':'flex'}),
     
