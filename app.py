@@ -15,9 +15,11 @@ confirmed_pd.columns = confirmed_pd.columns.astype(str)
 
 columns = confirmed_pd.columns
 
-confirmed_pd['Population'] = population_pd['population']
+population_pd = population_pd.drop(['County Name','State'], axis=1).reset_index(drop=True)
 
-confirmed_pd = confirmed_pd[confirmed_pd['Population']!=0].reset_index(drop=True)
+confirmed_pd = pd.merge(confirmed_pd, population_pd, on=['countyFIPS']).dropna().reset_index(drop=True)
+
+confirmed_pd = confirmed_pd[confirmed_pd['population']!=0].reset_index(drop=True)
 
 state = confirmed_pd.copy()
 state = state[state["State"] == 'FL']
@@ -85,8 +87,8 @@ while i>0:
     d2 = columns[-(i+14)]
 
     x.append(d1)
-    y.append((local[d1].sum() - local[d2].sum())/local['Population'].sum()*100000)
-    z.append((state[d1].sum() - state[d2].sum())/state['Population'].sum()*100000)
+    y.append((local[d1].sum() - local[d2].sum())/local['population'].sum()*100000)
+    z.append((state[d1].sum() - state[d2].sum())/state['population'].sum()*100000)
     i -= 1
 
 LineData = pd.DataFrame(list(zip(x,y,z)), columns = ['Dates', 'Local', 'Florida']) 
