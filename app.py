@@ -1,17 +1,10 @@
 import pandas as pd
 import plotly.express as px
-import plotly.figure_factory as ff
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Output
-from statistics import mean
-from statistics import stdev
-import math
-from urllib.request import urlopen
-import json
-with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
-    counties = json.load(response)
+
 
 url = 'https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv'
 popUrl = 'https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv'
