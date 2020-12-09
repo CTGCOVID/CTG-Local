@@ -51,12 +51,24 @@ while i>0:
     d1 = columns[-i]
     d2 = columns[-(i+14)]
 
+    FLlocal[d1] = pd.to_numeric(FLlocal[d1])
+    FLlocal[d2] = pd.to_numeric(FLlocal[d2])
+    NYlocal[d1] = pd.to_numeric(NYlocal[d1])
+    NYlocal[d2] = pd.to_numeric(NYlocal[d2])
+    
+    FLstate[d1] = pd.to_numeric(FLstate[d1])
+    FLstate[d2] = pd.to_numeric(FLstate[d2])
+    NYstate[d1] = pd.to_numeric(NYstate[d1])
+    NYstate[d2] = pd.to_numeric(NYstate[d2])
+    
     x.append(d1)
+    
     y1.append((FLlocal[d1].sum() - FLlocal[d2].sum())/FLlocal['population'].sum()*100000)
     z1.append((FLstate[d1].sum() - FLstate[d2].sum())/FLstate['population'].sum()*100000)
     y2.append((NYlocal[d1].sum() - NYlocal[d2].sum())/NYlocal['population'].sum()*100000)
     z2.append((NYstate[d1].sum() - NYstate[d2].sum())/NYstate['population'].sum()*100000)
     i -= 1
+
 
 LineData = pd.DataFrame(list(zip(x,y1,z1,y2,z2)), columns = ['Dates', 'Santa Rosa', 'Florida', 'Delaware', 'NY']) 
     
