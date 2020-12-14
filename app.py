@@ -95,7 +95,7 @@ LineData = pd.DataFrame(list(zip(x,y1,z1,y2,z2,y3,z3,y4)), columns = ['Dates', '
 fig1 = px.line(LineData, x='Dates', y=['Santa Rosa', 'Florida', 'Delaware', 'NY', 'Tioga', 'PA', 'Brevard'], title='Incidence Rate')
 fig1.update_xaxes(title_text='Date')
 fig1.update_yaxes(showline=True, linecolor='white', title_text='Incidence Rate')
-fig1.update_layout(yaxis_showgrid=False, xaxis_showgrid=False, xaxis_tickangle = -45, title_x = 0.4, font={"size":15, "color":"gray"}, plot_bgcolor='#111110', paper_bgcolor='#111110', title_font_color='white')
+fig1.update_layout(yaxis_showgrid=False, xaxis_showgrid=False, xaxis_tickangle = -45, title_x = 0.4, font={"size":15, "color":"gray"}, plot_bgcolor='#111125', paper_bgcolor='#111125', title_font_color='white')
 ################################################################    
 
 
@@ -278,7 +278,7 @@ app.layout = html.Div([
     dcc.Interval(
         id='graph-update',
         interval = 100),
-    ], className='container', style={'backgroundColor':'#111110'})
+    ], className='container', style={'backgroundColor':'#111125'})
 
 
 if __name__ == '__main__':
