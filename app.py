@@ -30,7 +30,7 @@ FLlocal= FLstate[FLstate["County Name"]=='Santa Rosa County']
 FLlocal = FLlocal.reset_index(drop=True)
 
 FLlocal2= FLstate[FLstate["County Name"]=='Brevard County']
-FLlocal2 = FLlocal.reset_index(drop=True)
+FLlocal2 = FLlocal2.reset_index(drop=True)
 
 
 NYstate = confirmed_pd.copy()
