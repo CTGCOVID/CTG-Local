@@ -26,22 +26,22 @@ confirmed_pd = confirmed_pd[confirmed_pd['countyFIPS']>1000].reset_index(drop=Tr
 
 FLstate = confirmed_pd.copy()
 FLstate = FLstate[FLstate["State"] == 'FL']
-FLlocal= FLstate[FLstate["County Name"]=='Santa Rosa County']
+FLlocal= FLstate[FLstate["County Name"]=='Santa Rosa County ']
 FLlocal = FLlocal.reset_index(drop=True)
 
-FLlocal2= FLstate[FLstate["County Name"]=='Brevard County']
+FLlocal2= FLstate[FLstate["County Name"]=='Brevard County ']
 FLlocal2 = FLlocal2.reset_index(drop=True)
 
 
 NYstate = confirmed_pd.copy()
 NYstate = NYstate[NYstate["State"] == 'NY']
-NYlocal= NYstate[NYstate["County Name"]=='Delaware County']
+NYlocal= NYstate[NYstate["County Name"]=='Delaware County ']
 NYlocal = NYlocal.reset_index(drop=True)
 
 
 PAstate = confirmed_pd.copy()
 PAstate = PAstate[PAstate["State"] == 'PA']
-PAlocal= PAstate[PAstate["County Name"]=='Tioga County']
+PAlocal= PAstate[PAstate["County Name"]=='Tioga County ']
 PAlocal = PAlocal.reset_index(drop=True)
 
 
